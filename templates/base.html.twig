@@ -3,10 +3,20 @@
     <head>
         <meta charset="UTF-8">
         <title>{% block title %}Welcome!{% endblock %}</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link href="https://fonts.googleapis.com/css?family=Courgette&display=swap" rel="stylesheet">
         {{ encore_entry_link_tags('app') }}
         {% block stylesheets %}{% endblock %}
     </head>
     <body>
+        {% block header %}
+            <div class="container-fluid text-center title--header">
+                <h1>Pizzeria La Fattoria</h1>
+            </div>
+        {% endblock %}
+        {% block navigation %}
+            {{ include ('navigation.html.twig') }}
+        {% endblock %}
         {% block body %}{% endblock %}
         {{ encore_entry_script_tags('app') }}
         {% block javascripts %}{% endblock %}

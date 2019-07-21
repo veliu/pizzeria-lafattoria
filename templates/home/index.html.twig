@@ -1,20 +1,55 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Hello HomeController!{% endblock %}
+{% block title %}Pizzeria La Fattoria{% endblock %}
 
 {% block body %}
-<style>
-    .example-wrapper { margin: 1em auto; max-width: 800px; width: 95%; font: 18px/1.5 sans-serif; }
-    .example-wrapper code { background: #F5F5F5; padding: 2px 6px; }
-</style>
 
-<div class="example-wrapper">
-    <h1>Hello {{ controller_name }}! ✅</h1>
+    <div class="container-fluid float-left text-center sidebar" >
+        <div class="home--container">
+            <i class="fas fa-phone-alt "></i>
+            <a href="tel:+486104780710">06104 780710</a>
+        </div>
+        <div class="home--container d-xl-none d-lg-none d-md-none">
+            <i class="fas fa-utensils"></i>
+            <a href="{{ path('speisekarte') }}">Zur Speisekarte</a>
+        </div>
+        <div class="home--container">
+            <span>Wir liefern ab einer Bestellung von € 12,- konstenlos zu Ihnen nachhause! Bei Bestellungen unter € 12,- berechnen wir nur € 0,50 zusätzlich.</span>
+        </div>
+        <div class="home--container">
+            <span>Täglich geöffnet von <br><b>11:30 - 14:30 Uhr</b><br>und<br><b>17:30 - 23:00 Uhr</b><br>Dienstag ist Ruhetag</span>
+        </div>
+        <div class="maps--container" style="height: 15em">
+            <iframe width="100%" height="100%" frameborder="0" style="border:0; border-radius: 25px"
+                    src="https://www.google.com/maps/embed/v1/place?key=AIzaSyC672S-9T0BKPxf523cT7t-AZYB0y0dv20&q=place_id:ChIJU0uuNfcTvUcRycoM-emm8u4" allowfullscreen>
+            </iframe>
+        </div>
+    </div>
 
-    This friendly message is coming from:
-    <ul>
-        <li>Your controller at <code><a href="{{ '/home/lv/workspace/pizzeria2.0/src/Controller/HomeController.php'|file_link(0) }}">src/Controller/HomeController.php</a></code></li>
-        <li>Your template at <code><a href="{{ '/home/lv/workspace/pizzeria2.0/templates/home/index.html.twig'|file_link(0) }}">templates/home/index.html.twig</a></code></li>
-    </ul>
-</div>
+
+    <div class="container-fluid float-right h-100 align-items-center d-none d-md-block d-lg-block" style="width: 75%">
+        <div class="list-group speisekarte">
+            {% for group in dishGroups %}
+
+                <a href="#{{ group.name|e }}" class="list-group-item list-group-item-action dish--group">
+                    <div class="d-flex w-100 justify-content-between">
+                        <h5 id="{{ group.name|e }}" class="mb-1">{{ group.name|e }}</h5>
+                    </div>
+                </a>
+
+                {% for dish in group.dishes %}
+                    <a href="#" class="list-group-item list-group-item-action">
+                        <div class="d-flex w-100 justify-content-between">
+                            <h5 id="{{ dish.name|e }}" class="mb-1">{{ dish.name|e }}</h5>
+                            <small>{{ dish.price|number_format(2, '.', ',') }} €</small>
+                        </div>
+                        <small class="mb-1">{{ dish.description|e }}</small>
+                    </a>
+                {% endfor %}
+
+            {% endfor %}
+        </div>
+    </div>
+
+
 {% endblock %}

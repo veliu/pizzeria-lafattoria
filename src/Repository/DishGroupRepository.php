@@ -2,8 +2,11 @@
 
 namespace App\Repository;
 
+use App\Entity\Dish;
 use App\Entity\DishGroup;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
+use Doctrine\ORM\AbstractQuery;
+use Doctrine\ORM\Query\Expr\Join;
 use Symfony\Bridge\Doctrine\RegistryInterface;
 
 /**
@@ -18,6 +21,28 @@ class DishGroupRepository extends ServiceEntityRepository
     {
         parent::__construct($registry, DishGroup::class);
     }
+
+    /**
+     * @param bool $includeItems
+     * @return array
+     */
+    public function getDishGroups($includeItems = false)
+    {
+        $queryBuilder = $this
+            ->getEntityManager()
+            ->getRepository(DishGroup::class)
+            ->createQueryBuilder('dg');
+
+        $queryBuilder->where($queryBuilder->expr()->eq('dg.active' , true));
+
+        if($includeItems) {
+            $queryBuilder->innerJoin('dg.dishes', 'd')->addSelect('d');
+        }
+
+        return $queryBuilder->getQuery()->getResult(AbstractQuery::HYDRATE_ARRAY);
+    }
+
+
 
     // /**
     //  * @return DishGroup[] Returns an array of DishGroup objects

@@ -1,0 +1,29 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Pizzeria La Fattoria | Speisekarte{% endblock %}
+
+{% block body %}
+
+    <div class="list-group speisekarte">
+        {% for group in dishGroups %}
+
+            <a href="#{{ group.name|e }}" class="list-group-item list-group-item-action dish--group">
+                <div class="d-flex w-100 justify-content-between">
+                    <h5 id="{{ group.name|e }}" class="mb-1">{{ group.name|e }}</h5>
+                </div>
+            </a>
+
+            {% for dish in group.dishes %}
+                <a href="#" class="list-group-item list-group-item-action">
+                    <div class="d-flex w-100 justify-content-between">
+                        <h5 id="{{ dish.name|e }}" class="mb-1">{{ dish.name|e }}</h5>
+                        <small>{{ dish.price|number_format(2, '.', ',') }} €</small>
+                    </div>
+                    <small class="mb-1">{{ dish.description|e }}</small>
+                </a>
+            {% endfor %}
+
+        {% endfor %}
+    </div>
+
+{% endblock %}

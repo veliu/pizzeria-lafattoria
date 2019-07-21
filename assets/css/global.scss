@@ -1,0 +1,85 @@
+@import "~bootstrap/scss/bootstrap";
+
+$body-bg: white;
+
+.bg-dark, .dropdown-menu, .dropdown-item {
+  color: white;
+  background-color: #3a3830 !important;
+}
+
+.title--header {
+  letter-spacing: 15px;
+  background: rgba(255, 255, 255, .6);
+  margin: 0;
+  padding: 1em;
+}
+
+body{
+  font-family: 'Courgette', cursive;
+  background-image: url("../images/holzhintergrund.jpg");
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+}
+
+.maps--container {
+  box-shadow: 10px 10px 20px black;
+  border-radius: 25px;
+  margin-top: 1rem;
+
+  .carousel-inner {
+    border-radius: 25px;
+  }
+}
+
+.home--container {
+
+  a, div {
+    text-decoration: none;
+    color: black !important;
+  }
+
+  box-shadow: 10px 10px 20px black;
+  border-radius: 25px;
+  margin-top: 1rem;
+  padding: 1rem;
+  background: rgba(255, 255, 255, .6);
+}
+
+.speisekarte {
+  margin-top: 1rem;
+}
+
+.speisekarte > .dish--group {
+
+  h5 {
+    color: white;
+  }
+
+  background-color: #3a3830;
+
+  /*
+  background-attachment: fixed;
+  background-image: url("../images/holzhintergrund.jpg");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  */
+}
+
+@media only screen and (max-width: 767px) {
+  .sidebar {
+    width: 100%;
+  }
+}
+
+@media only screen and (min-width: 768px) {
+  .sidebar {
+    max-width: 25%;
+    //position: fixed;
+    //top: 17%;
+  }
+}
+
+
