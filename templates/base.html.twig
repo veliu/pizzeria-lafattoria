@@ -2,7 +2,8 @@
 <html>
     <head>
         <meta charset="UTF-8">
-        <title>{% block title %}Welcome!{% endblock %}</title>
+        <link href="{{ asset('build/favicon.png') }}" rel="shortcut icon"/>
+        <title>{% block title %}Pizzeria La Fattoria | {{ title }}{% endblock %}</title>
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link href="https://fonts.googleapis.com/css?family=Courgette&display=swap" rel="stylesheet">
         {{ encore_entry_link_tags('app') }}
@@ -11,7 +12,7 @@
     <body>
         {% block header %}
             <div class="container-fluid text-center title--header">
-                <h1>Pizzeria La Fattoria</h1>
+                <h1>Pizzeria La Fattoria - Alte Schmiede</h1>
             </div>
         {% endblock %}
         {% block navigation %}
@@ -19,6 +20,8 @@
         {% endblock %}
         {% block body %}{% endblock %}
         {{ encore_entry_script_tags('app') }}
-        {% block javascripts %}{% endblock %}
+        {% block javascripts %}
+            <script type="text/javascript" src="https://s3.eu-central-1.amazonaws.com/website-tutor/cookiehinweis/script.js"></script>
+        {% endblock %}
     </body>
 </html>

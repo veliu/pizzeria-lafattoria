@@ -1,4 +1,5 @@
 @import "~bootstrap/scss/bootstrap";
+@import "cookie-hint";
 
 $body-bg: white;
 
@@ -26,7 +27,7 @@ body{
 .maps--container {
   box-shadow: 10px 10px 20px black;
   border-radius: 25px;
-  margin-top: 1rem;
+  margin-bottom: 1rem;
 
   .carousel-inner {
     border-radius: 25px;
@@ -42,6 +43,7 @@ body{
 
   box-shadow: 10px 10px 20px black;
   border-radius: 25px;
+  margin-bottom: 1rem;
   padding: 1rem;
   background: rgba(255, 255, 255, .6);
 }
@@ -53,28 +55,41 @@ body{
   }
 
   background-color: #3a3830;
-
-  /*
-  background-attachment: fixed;
-  background-image: url("../images/holzhintergrund.jpg");
-  background-repeat: no-repeat;
-  background-position: center;
-  background-size: cover;
-  */
 }
 
 @media only screen and (max-width: 767px) {
   .sidebar {
     width: 100%;
   }
+  .speisekarte--full {
+    width: 100%;
+    float: none;
+  }
+
+  #dish-group-nav {
+    display: none;
+  }
 }
 
 @media only screen and (min-width: 768px) {
   .sidebar {
+    z-index: 1000 !important;
+    top: 5rem;
     max-width: 25%;
-    //position: fixed;
-    //top: 17%;
   }
+  #dish-group-nav {
+    top: 5rem;
+    width: 20%;
+    float: left;
+    margin-left: 1rem;
+  }
+
+  .speisekarte--full {
+    margin-right: 1rem;
+    width: 75%;
+    float: right;
+  }
+
 }
 
 

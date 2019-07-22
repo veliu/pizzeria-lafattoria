@@ -18,6 +18,7 @@ class SpeisekarteController extends AbstractController
         $dishGroups = $this->getDoctrine()->getRepository(DishGroup::class)->getDishGroups(true);
 
         return $this->render('speisekarte/index.html.twig', [
+            'title' => " | Speisekarte",
             'dishGroups' => $dishGroups
         ]);
     }

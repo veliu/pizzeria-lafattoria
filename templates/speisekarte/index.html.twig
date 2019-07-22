@@ -4,7 +4,13 @@
 
 {% block body %}
 
-    <div class="list-group speisekarte">
+    <div id="dish-group-nav" class="list-group sticky-top">
+        {% for group in dishGroups %}
+            <a class="list-group-item list-group-item-action" href="#{{ group.name|e }}" style="max-height: 2.5rem">{{ group.name|e }}</a>
+        {% endfor %}
+    </div>
+
+    <div id="speisekarte" data-spy="scroll" data-target="#ldish-group-nav" data-offset="0" class="list-group speisekarte speisekarte--full">
         {% for group in dishGroups %}
 
             <a href="#{{ group.name|e }}" class="list-group-item list-group-item-action dish--group">
@@ -13,16 +19,24 @@
                 </div>
             </a>
 
+            <ul class="list-group">
             {% for dish in group.dishes %}
-                <a href="#" class="list-group-item list-group-item-action">
+                <li class="list-group-item">
                     <div class="d-flex w-100 justify-content-between">
-                        <h5 id="{{ dish.name|e }}" class="mb-1">{{ dish.name|e }}</h5>
+                        <h5 id="{{ dish.name|e }}" class="mb-1">{{ dish.number }}. {{ dish.name|e }}</h5>
                         <small>{{ dish.price|number_format(2, '.', ',') }} €</small>
                     </div>
                     <small class="mb-1">{{ dish.description|e }}</small>
-                </a>
+                </li>
+                {#<a href="" class="list-group-item list-group-item-action">
+                    <div class="d-flex w-100 justify-content-between">
+                        <h5 id="{{ dish.name|e }}" class="mb-1">{{ dish.number }}. {{ dish.name|e }}</h5>
+                        <small>{{ dish.price|number_format(2, '.', ',') }} €</small>
+                    </div>
+                    <small class="mb-1">{{ dish.description|e }}</small>
+                </a>#}
             {% endfor %}
-
+            </ul>
         {% endfor %}
     </div>
 
