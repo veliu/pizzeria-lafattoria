@@ -1,4 +1,11 @@
 {
+    "name": "pizzeria-la-fattoria",
+    "authors": [
+        {
+            "name": "Lirim Veliu",
+            "email": "lirim@its-lv.de"
+        }
+    ],
     "type": "project",
     "license": "proprietary",
     "require": {
