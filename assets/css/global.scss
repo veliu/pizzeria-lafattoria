@@ -66,8 +66,16 @@ body{
     float: none;
   }
 
+  .title--header {
+    display: none;
+  }
+
   #dish-group-nav {
     display: none;
+  }
+
+  .speisekarte--full {
+    margin-top: -1rem;
   }
 }
 
@@ -92,4 +100,6 @@ body{
 
 }
 
-
+#dish-group-nav {
+  z-index: 1;
+}
