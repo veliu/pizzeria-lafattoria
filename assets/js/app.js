@@ -12,6 +12,7 @@ require('@fortawesome/fontawesome-free/css/all.min.css');
 require('@fortawesome/fontawesome-free/js/all.js');
 require('bootstrap');
 require('./cookie-hint.js');
+require('./ga.js');
 
 const $ = require('jquery');
 
