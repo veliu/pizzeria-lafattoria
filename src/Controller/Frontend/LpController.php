@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Controller;
+namespace App\Controller\Frontend;
 
 use App\Entity\DishGroup;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
@@ -15,7 +15,7 @@ class LpController extends AbstractController
     {
         $dishGroups = $this->getDoctrine()->getRepository(DishGroup::class)->getDishGroups(true);
 
-        return $this->render('landingpages/impressum.html.twig', [
+        return $this->render('frontend/landingpages/impressum.html.twig', [
             "dishGroups" => $dishGroups,
             "title" => " | Impressum"
         ]);
@@ -28,7 +28,7 @@ class LpController extends AbstractController
     {
         $dishGroups = $this->getDoctrine()->getRepository(DishGroup::class)->getDishGroups(true);
 
-        return $this->render('landingpages/datenschutz.html.twig', [
+        return $this->render('frontend/landingpages/datenschutz.html.twig', [
             "dishGroups" => $dishGroups,
             "title" => " | Datenschutz"
         ]);

@@ -1,10 +1,8 @@
 <?php
 
-namespace App\Controller;
+namespace App\Controller\Frontend;
 
-use App\Entity\Dish;
 use App\Entity\DishGroup;
-use App\Repository\DishRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\Routing\Annotation\Route;
 
@@ -17,7 +15,7 @@ class SpeisekarteController extends AbstractController
     {
         $dishGroups = $this->getDoctrine()->getRepository(DishGroup::class)->getDishGroups(true);
 
-        return $this->render('speisekarte/index.html.twig', [
+        return $this->render('frontend/speisekarte/index.html.twig', [
             'title' => " | Speisekarte",
             'dishGroups' => $dishGroups
         ]);
