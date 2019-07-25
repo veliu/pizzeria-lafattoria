@@ -5,7 +5,7 @@
     <link href="{{ asset('build/favicon.png') }}" rel="shortcut icon"/>
     <title>{% block title %}Pizzeria La Fattoria | {{ title }}{% endblock %}</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    {{ encore_entry_link_tags('app') }}
+    {{ encore_entry_link_tags('backend') }}
     {% block stylesheets %}{% endblock %}
 </head>
 <body>
@@ -17,7 +17,7 @@
 {% block navigation %}
 {% endblock %}
 {% block body %}{% endblock %}
-{{ encore_entry_script_tags('app') }}
+{{ encore_entry_script_tags('backend') }}
 {% block javascripts %}
 {% endblock %}
 </body>

@@ -7,7 +7,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link href="https://fonts.googleapis.com/css?family=Courgette&display=swap" rel="stylesheet">
         <script async src="https://www.googletagmanager.com/gtag/js?id=UA-144512161-1"></script>
-        {{ encore_entry_link_tags('app') }}
+        {{ encore_entry_link_tags('frontend') }}
         {% block stylesheets %}{% endblock %}
     </head>
     <body>
@@ -20,7 +20,7 @@
             {{ include ('frontend/navigation.html.twig') }}
         {% endblock %}
         {% block body %}{% endblock %}
-        {{ encore_entry_script_tags('app') }}
+        {{ encore_entry_script_tags('frontend') }}
         {% block javascripts %}
             <script type="text/javascript" src="https://s3.eu-central-1.amazonaws.com/website-tutor/cookiehinweis/script.js"></script>
         {% endblock %}

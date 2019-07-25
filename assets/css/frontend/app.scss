@@ -1,4 +1,4 @@
-@import "~bootstrap/scss/bootstrap";
+@import "../../../node_modules/bootstrap/scss/bootstrap";
 @import "cookie-hint";
 
 $body-bg: white;
@@ -17,7 +17,7 @@ $body-bg: white;
 
 body{
   font-family: 'Courgette', cursive;
-  background-image: url("../images/holzhintergrund.jpg");
+  background-image: url("../../images/holzhintergrund.jpg");
   background-position: center;
   background-size: cover;
   background-repeat: no-repeat;
