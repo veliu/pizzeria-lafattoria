@@ -5,16 +5,17 @@ namespace App\Controller\Backend;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\Routing\Annotation\Route;
 
-class DashboardController extends AbstractController
+class DashboardController extends BaseController
 {
     /**
-     * @Route("/dashboard", name="dashboard")
+     * @Route("/backend", name="backend_dashboard")
      */
     public function index()
     {
-        return $this->render('backend/dashboard/index.html.twig', [
-            'title' => 'backend dashboard',
-            'controller_name' => 'DashboardController',
-        ]);
+        $this->preDispatch();
+
+        $this->templateVars["title"] = 'backend dashboard';
+
+        return $this->render('backend/dashboard/index.html.twig', $this->templateVars);
     }
 }

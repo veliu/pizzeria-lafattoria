@@ -24,8 +24,7 @@ class DishRepository extends ServiceEntityRepository
         $queryBuilder = $this
             ->getEntityManager()
             ->getRepository(Dish::class)
-            ->createQueryBuilder('d')
-            ->orderBy('d.number');
+            ->createQueryBuilder('d');
 
         return $queryBuilder->getQuery()->getArrayResult();
     }

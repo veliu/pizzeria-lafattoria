@@ -5,20 +5,35 @@
     <link href="{{ asset('build/favicon.png') }}" rel="shortcut icon"/>
     <title>{% block title %}Pizzeria La Fattoria | {{ title }}{% endblock %}</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="robots" content="noindex" />
+    <meta name="googlebot" content="noindex" />
     {{ encore_entry_link_tags('backend') }}
     {% block stylesheets %}{% endblock %}
 </head>
 <body>
-{% block header %}
-    <div class="container-fluid text-center title--header">
-        <h1>Pizzeria La Fattoria - Alte Schmiede</h1>
+{% block header %}{% endblock %}
+
+{% if errorMessage %}
+    <div class="alert alert-danger">
+        <i class="fas fa-info-circle"></i> {{ errorMessage }}
     </div>
-{% endblock %}
+{% endif %}
+
+{% if successMessage %}
+    <div class="alert alert-success">
+        <i class="fas fa-info-circle"></i> {{ successMessage }}
+    </div>
+{% endif %}
+
 {% block navigation %}
+    {% if navbarEnabled == true %}
+        {{ include('backend/navbar.html.twig') }}
+    {% endif %}
 {% endblock %}
+
 {% block body %}{% endblock %}
+
 {{ encore_entry_script_tags('backend') }}
-{% block javascripts %}
-{% endblock %}
+{% block javascripts %}{% endblock %}
 </body>
 </html>

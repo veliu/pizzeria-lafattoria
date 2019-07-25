@@ -6,30 +6,37 @@ use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Component\Security\Http\Authentication\AuthenticationUtils;
 
-class SecurityController extends AbstractController
+class SecurityController extends BaseController
 {
     /**
      * @Route("/login", name="login")
      */
     public function login(AuthenticationUtils $authenticationUtils): Response
     {
+        $this->preDispatch();
+
         // if ($this->getUser()) {
         //    $this->redirectToRoute('target_path');
         // }
 
         // get the login error if there is one
-        $error = $authenticationUtils->getLastAuthenticationError();
-        // last username entered by the user
-        $lastUsername = $authenticationUtils->getLastUsername();
+        $this->templateVars["errorMessage"] = $authenticationUtils->getLastAuthenticationError();
 
-        return $this->render('backend/security/login.html.twig', ['last_username' => $lastUsername, 'error' => $error]);
+        // last username entered by the user
+        $this->templateVars["lastUsername"] = $authenticationUtils->getLastUsername();
+
+        $this->templateVars["title"] = 'Login';
+
+        return $this->render('backend/security/login.html.twig', $this->templateVars);
     }
 
     /**
-     * @Route("/logout", name="app_logout")
+     * @Route("/logout", name="logout")
      */
     public function logout()
     {
+        $this->preDispatch();
+
         throw new \Exception('This method can be blank - it will be intercepted by the logout key on your firewall');
     }
 }
