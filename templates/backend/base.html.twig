@@ -13,6 +13,12 @@
 <body>
 {% block header %}{% endblock %}
 
+{% block navigation %}
+    {% if navbarEnabled == true %}
+        {{ include('backend/navbar.html.twig') }}
+    {% endif %}
+{% endblock %}
+
 {% if errorMessage %}
     <div class="alert alert-danger">
         <i class="fas fa-info-circle"></i> {{ errorMessage }}
@@ -24,12 +30,6 @@
         <i class="fas fa-info-circle"></i> {{ successMessage }}
     </div>
 {% endif %}
-
-{% block navigation %}
-    {% if navbarEnabled == true %}
-        {{ include('backend/navbar.html.twig') }}
-    {% endif %}
-{% endblock %}
 
 {% block body %}{% endblock %}
 

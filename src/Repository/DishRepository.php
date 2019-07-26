@@ -19,14 +19,12 @@ class DishRepository extends ServiceEntityRepository
         parent::__construct($registry, Dish::class);
     }
 
-    public function getSpeisekarte()
+    public function getAllDishes()
     {
-        $queryBuilder = $this
-            ->getEntityManager()
-            ->getRepository(Dish::class)
-            ->createQueryBuilder('d');
+        $queryBuilder = $this->getEntityManager()->getRepository(Dish::class)->createQueryBuilder('d');
+        $queryBuilder->orderBy('d.number');
 
-        return $queryBuilder->getQuery()->getArrayResult();
+        return $queryBuilder->getQuery()->getResult();
     }
 
     // /**

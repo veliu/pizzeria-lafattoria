@@ -26,6 +26,7 @@ class SecurityController extends BaseController
         $this->templateVars["lastUsername"] = $authenticationUtils->getLastUsername();
 
         $this->templateVars["title"] = 'Login';
+        $this->templateVars["navbarEnabled"] = false;
 
         return $this->render('backend/security/login.html.twig', $this->templateVars);
     }

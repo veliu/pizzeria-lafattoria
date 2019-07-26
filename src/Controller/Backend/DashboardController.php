@@ -14,7 +14,7 @@ class DashboardController extends BaseController
     {
         $this->preDispatch();
 
-        $this->templateVars["title"] = 'backend dashboard';
+        $this->templateVars["title"] = 'Backend Dashboard';
 
         return $this->render('backend/dashboard/index.html.twig', $this->templateVars);
     }

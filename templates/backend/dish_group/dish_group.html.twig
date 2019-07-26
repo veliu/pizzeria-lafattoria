@@ -1,0 +1,9 @@
+{% extends 'backend/base.html.twig' %}
+{% block body %}
+
+    <div class="container">
+        {{ form(dishGroupForm) }}
+        <a class="btn btn-secondary" href="{{ path('backend_dish_group_list') }}">Zurück</a>
+    </div>
+
+{% endblock %}

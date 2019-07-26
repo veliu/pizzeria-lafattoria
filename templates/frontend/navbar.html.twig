@@ -9,6 +9,8 @@
                 <a class="nav-link dropdown-toggle" href="{{ path('speisekarte') }}" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                     Speisekarten
                 </a>
+            </li>
+            <li class="navbar-nav mr-auto">
                 <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                     <a class="dropdown-item" href="{{ path('speisekarte') }}">Alles</a>
                     {% for group in dishGroups %}

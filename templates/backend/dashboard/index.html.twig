@@ -2,7 +2,20 @@
 
 {% block body %}
 
-<div class="container-fluid justify-content-center align-content-center">
-    Backend
+<div class="container">
+    <div class="jumbotron">
+        <h1 class="display-4">Artikel bearbeiten</h1>
+        <p class="lead"></p>
+        <p class="lead">
+            <a class="btn btn-primary btn-lg" href="{{ path('backend_dish_list') }}" role="button">Zu den Artikeln</a>
+        </p>
+    </div>
+    <div class="jumbotron">
+        <h1 class="display-4">Gruppen bearbeiten</h1>
+        <p class="lead"></p>
+        <p class="lead">
+            <a class="btn btn-primary btn-lg" href="{{ path('backend_dish_group_list') }}" role="button">Zu den Gruppen</a>
+        </p>
+    </div>
 </div>
 {% endblock %}

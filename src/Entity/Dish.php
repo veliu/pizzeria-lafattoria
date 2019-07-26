@@ -27,7 +27,7 @@ class Dish
     private $description;
 
     /**
-     * @ORM\Column(type="string", length=255, nullable=true)
+     * @ORM\Column(type="integer", nullable=true, unique=true)
      */
     private $number;
 
