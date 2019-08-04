@@ -1,8 +1,18 @@
 {% extends 'backend/base.html.twig' %}
 {% block body %}
 
-    <div class="container">
-        {{ form(dishForm) }}
+    <div class="container dish--container">
+
+        {{ form_start(dishForm) }}
+        {{ form_errors(dishForm) }}
+
+        {{ form_row(dishForm.number, {'label': 'Nummer'}) }}
+        {{ form_row(dishForm.name, {'label': 'Name'}) }}
+        {{ form_row(dishForm.description, {'label': 'Beschreibung'}) }}
+        {{ form_row(dishForm.DishGroup, {'label': 'Gruppe'}) }}
+        {{ form_row(dishForm.price, {'label': 'Preis'}) }}
+        {{ form_row(dishForm.save, { 'label': 'Speichern' }) }}
+        {{ form_end(dishForm, {'render_rest': false}) }}
         <a class="btn btn-secondary" href="{{ path('backend_dish_list') }}">Zurück</a>
     </div>
 

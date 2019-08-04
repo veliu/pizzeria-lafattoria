@@ -24,7 +24,7 @@ class DishController extends BaseController
         $this->templateVars["speisekarte"] = $this->getDoctrine()->getRepository(Dish::class)->getAllDishes();
         $this->templateVars["title"] = 'Übersicht Speisekarte';
 
-        return $this->render('backend/dish/index.html.twig', $this->templateVars);
+        return $this->render('backend/dish/list.html.twig', $this->templateVars);
     }
 
     /**
@@ -79,9 +79,7 @@ class DishController extends BaseController
     protected function createDishForm($dish)
     {
         $form = $this->createFormBuilder($dish)
-            ->add('number', IntegerType::class, [
-                'label' => 'Nummer'
-            ])
+            ->add('number', IntegerType::class)
             ->add('name', TextType::class, [
                 'label' => 'Name'
             ])

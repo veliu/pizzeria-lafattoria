@@ -18,7 +18,7 @@ class DishGroupController extends BaseController
         $this->preDispatch();
         $this->templateVars["dishGroups"] = $this->getDoctrine()->getManager()->getRepository(DishGroup::class)->findAll();
 
-        return $this->render('backend/dish_group/index.html.twig', $this->templateVars);
+        return $this->render('backend/dish_group/list.html.twig', $this->templateVars);
     }
 
     /**
@@ -61,7 +61,7 @@ class DishGroupController extends BaseController
     {
         $this->preDispatch();
 
-        return $this->render('backend/dish_group/index.html.twig', $this->templateVars);
+        return $this->render('backend/dish_group/list.html.twig', $this->templateVars);
     }
 
     private function createDishGroupForm($dishGroup)

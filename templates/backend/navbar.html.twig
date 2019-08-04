@@ -1,4 +1,4 @@
-<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top">
     <a class="navbar-brand" href="{{ path('backend_dashboard') }}">Dashboard</a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
@@ -14,12 +14,15 @@
             </li>
             <li class="nav-item active dropdown">
                 <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                    <i class="fas fa-plus-square"></i>
+                    <i class="fas fa-plus-square"></i> Anlegen
                 </a>
                 <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                     <a class="dropdown-item" href="{{ path('backend_dish_edit') }}">Artikel</a>
                     <a class="dropdown-item" href="{{ path('backend_dish_group_edit') }}">Gruppe</a>
                 </div>
+            </li>
+            <li class="nav-item active">
+                <a class="nav-link" href="{{ path('home') }}">Zur Startseite<span class="sr-only">(current)</span></a>
             </li>
         </ul>
         <form class="form-inline my-2 my-lg-0">
